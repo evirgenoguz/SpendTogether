@@ -15,3 +15,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpendTogether"
 include(":app")
+include(":core")
+include(":feature")
+include(":navigation-shared")
+include(":core:common")
+include(":core:data")
+include(":core:database")
+include(":core:domain")
+include(":core:model")
+include(":core:network")
+include(":core:presentation")
+include(":feature:sample")

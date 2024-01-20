@@ -3,10 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/sampleFragment">
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/sampleFragment"
         android:name="com.evirgenoguz.sample.SampleFragment"
         android:label="SampleFragment"
         tools:layout="@layout/fragment_sample"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.evirgenoguz.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_sampleFragment"
+            app:destination="@id/sampleFragment" />
+    </fragment>
 </navigation>

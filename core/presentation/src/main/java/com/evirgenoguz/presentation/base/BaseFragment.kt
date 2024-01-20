@@ -25,8 +25,11 @@ abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : F
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         callInitialViewModelFunction()
+        setupUI()
         observeUI()
     }
+
+    open fun setupUI() = Unit
 
     open fun observeUI() = Unit
 

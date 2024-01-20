@@ -46,6 +46,8 @@ android {
 dependencies {
 
     implementation(project(":navigation-shared"))
+    implementation(project(":feature:sample"))
+    implementation(project(":feature:splash"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

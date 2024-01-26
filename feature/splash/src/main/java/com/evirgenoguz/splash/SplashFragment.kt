@@ -21,7 +21,7 @@ class SplashFragment : Fragment() {
 
         Handler().postDelayed({
             findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToSampleFragment())
-        }, 3400)
+        }, 3800)
 
         return binding.root
     }

@@ -1,7 +1,9 @@
 package com.evirgenoguz.onboarding
 
 import android.content.Context
+import android.os.Handler
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.evirgenoguz.onboarding.databinding.FragmentToAppBinding
 import com.evirgenoguz.presentation.base.BaseFragment
 
@@ -19,5 +21,15 @@ class ToAppFragment : BaseFragment<FragmentToAppBinding>(FragmentToAppBinding::i
         val editor = sharedPref?.edit()
         editor?.putBoolean("Finished", true)
         editor?.apply()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewpager_onboarding)
+        Handler().postDelayed({
+            viewPager?.let {
+                it.currentItem = 0
+            }
+        }, 3000)
     }
 }

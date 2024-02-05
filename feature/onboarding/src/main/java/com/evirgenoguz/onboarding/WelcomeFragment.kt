@@ -9,12 +9,12 @@ import com.evirgenoguz.splash.SplashFragmentDirections
 
 class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>(FragmentWelcomeBinding::inflate) {
     override fun setupUI() {
-        binding.fabNext.setOnClickListener {
-            val viewPager = activity?.findViewById<ViewPager2>(R.id.viewpager_onboarding)
-            viewPager?.let {
-                it.currentItem = 1
-            }
-        }
+//        binding.fabNext.setOnClickListener {
+//            val viewPager = activity?.findViewById<ViewPager2>(R.id.viewpager_onboarding)
+//            viewPager?.let {
+//                it.currentItem = 1
+//            }
+//        }
     }
 
     override fun onResume() {

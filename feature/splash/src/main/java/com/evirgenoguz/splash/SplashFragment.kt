@@ -20,8 +20,8 @@ class SplashFragment : Fragment() {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
 
         Handler().postDelayed({
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToSampleFragment())
-        }, 3400)
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment())
+        }, 3800)
 
         return binding.root
     }

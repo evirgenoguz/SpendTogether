@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- General -->
     <string name="app_name">SpendTogether</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
+    <!-- OnBoarding -->
+    <string name="welcome_image">Welcome Image</string>
+    <string name="onboarding_welcome_text">Welcome to Spend Together, where financial collaboration meets simplicity. Join us to turn shared spending into shared joy!</string>
+
 </resources>

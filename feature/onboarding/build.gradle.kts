@@ -1,22 +1,18 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs")
 }
 
 android {
-    namespace = "com.evirgenoguz.spendtogether"
+    namespace = "com.evirgenoguz.onboarding"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.evirgenoguz.spendtogether"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,9 +31,6 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures{
-        viewBinding = true
-    }
     buildFeatures {
         viewBinding = true
     }
@@ -45,24 +38,22 @@ android {
 
 dependencies {
 
+    implementation(project(":core:presentation"))
+    implementation(project(":core:localization"))
     implementation(project(":navigation-shared"))
-    implementation(project(":feature:sample"))
-    implementation(project(":feature:splash"))
-    implementation(project(":feature:onboarding"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    // Hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    ksp("com.google.dagger:hilt-android-compiler:2.50")
+    //ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //Dots Indicator
+    implementation("com.tbuonomo:dotsindicator:4.3")
 
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")

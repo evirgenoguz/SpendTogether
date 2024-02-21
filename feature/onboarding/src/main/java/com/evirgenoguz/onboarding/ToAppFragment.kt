@@ -10,7 +10,7 @@ import com.evirgenoguz.presentation.base.BaseFragment
 class ToAppFragment : BaseFragment<FragmentToAppBinding>(FragmentToAppBinding::inflate) {
     override fun setupUI() {
         binding.fabDone.setOnClickListener {
-            val action = OnBoardingFragmentDirections.actionOnBoardingFragmentToSampleFragment()
+            val action = OnBoardingFragmentDirections.actionOnBoardingFragmentToLoginFragment()
             findNavController().navigate(action)
             onBoardingFinished()
         }

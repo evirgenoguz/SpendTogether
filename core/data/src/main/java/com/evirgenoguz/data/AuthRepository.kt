@@ -4,8 +4,6 @@ import com.evirgenoguz.common.ResponseState
 import com.evirgenoguz.network.dto.request.LoginRequest
 import com.evirgenoguz.network.dto.request.RegisterRequest
 import com.evirgenoguz.network.dto.request.ResetPasswordRequest
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 

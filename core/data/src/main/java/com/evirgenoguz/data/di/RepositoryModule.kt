@@ -24,8 +24,4 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
 
-    @Provides
-    @Singleton
-    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
-
 }

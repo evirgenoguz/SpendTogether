@@ -33,6 +33,4 @@ object NetworkModule {
         return retrofit.create(SampleApi::class.java)
     }
 
-    //Todo provideFirebase kısmı eklenecek
-
 }

@@ -4,10 +4,8 @@ import com.evirgenoguz.data.AuthRepository
 import com.evirgenoguz.data.AuthRepositoryImpl
 import com.evirgenoguz.data.SampleRepository
 import com.evirgenoguz.data.SampleRepositoryImpl
-import com.google.firebase.auth.FirebaseAuth
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/padding_large">
 
@@ -43,8 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:cardCornerRadius="@dimen/text_size_large"
-        android:layout_marginBottom="-20dp">
+        android:layout_marginBottom="-20dp"
+        app:cardCornerRadius="@dimen/text_size_large">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,90 +55,88 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome"
-                android:textStyle="bold"
+                android:text="@string/welcome"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/text_size_large"/>
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Please login with your information"
-                android:alpha="0.7"/>
-            
+                android:alpha="0.7"
+                android:text="@string/login_with_info" />
+
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email Adress"
+                android:text="@string/email_adress"
                 android:textStyle="bold">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textEmailAddress"
                     android:drawableEnd="@drawable/ic_done"
-                    />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="@string/password"
                 android:textStyle="bold">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textEmailAddress"
                     android:drawableEnd="@drawable/ic_password"
-                    />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                
+
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Remember me"
                     android:layout_centerVertical="true"
-                    android:alpha="0.7"/>
-                
+                    android:alpha="0.7"
+                    android:text="@string/remember_me" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="I forgot my password"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:text="@string/forgot_password" />
             </RelativeLayout>
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
+                android:layout_height="10dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOGIN"/>
+                android:text="Login" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Do you have an account? Login"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:text="Don't you have an account? Register" />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

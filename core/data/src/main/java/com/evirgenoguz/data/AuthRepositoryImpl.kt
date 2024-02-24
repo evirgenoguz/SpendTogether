@@ -2,8 +2,10 @@ package com.evirgenoguz.data
 
 import com.evirgenoguz.common.ResponseState
 import com.evirgenoguz.data.utils.await
-import com.evirgenoguz.network.dto.request.LoginRequest
-import com.evirgenoguz.network.dto.request.RegisterRequest
+import com.evirgenoguz.data.utils.toLoginRequest
+import com.evirgenoguz.data.utils.toRegisterRequest
+import com.evirgenoguz.model.LoginModel
+import com.evirgenoguz.model.RegisterModel
 import com.evirgenoguz.network.dto.request.ResetPasswordRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -18,10 +20,11 @@ class AuthRepositoryImpl @Inject constructor(
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
 
-    override suspend fun login(loginRequest: LoginRequest): Flow<ResponseState<FirebaseUser>> {
+    override suspend fun login(loginModel: LoginModel): Flow<ResponseState<FirebaseUser>> {
         return flow {
             emit(ResponseState.Loading)
             try {
+                val loginRequest = loginModel.toLoginRequest() //That's unnecessary but that's the correct way
                 val response = firebaseAuth.signInWithEmailAndPassword(
                     loginRequest.email,
                     loginRequest.password
@@ -33,10 +36,11 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun register(registerRequest: RegisterRequest): Flow<ResponseState<FirebaseUser>> {
+    override suspend fun register(registerModel: RegisterModel): Flow<ResponseState<FirebaseUser>> {
         return flow {
             emit(ResponseState.Loading)
             try {
+                val registerRequest = registerModel.toRegisterRequest()
                 val response = firebaseAuth.createUserWithEmailAndPassword(
                     registerRequest.email,
                     registerRequest.password

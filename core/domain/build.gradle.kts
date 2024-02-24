@@ -52,4 +52,8 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     ksp("com.google.dagger:hilt-android-compiler:2.50")
+
+    //Retrofit
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+
 }

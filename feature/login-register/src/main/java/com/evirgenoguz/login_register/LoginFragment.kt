@@ -26,7 +26,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 )
             )
         }
-//      Todo Don't you have account and register text will separate and register will navigate RegisterFragment
+        
+        binding.textViewForgotPassword.setOnClickListener {
+            // TODO: show a dialog that include edittext for user's mail
+        }
+
+        binding.textViewRegister.setOnClickListener {
+            navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+        }
     }
 
     override fun observeUI() {

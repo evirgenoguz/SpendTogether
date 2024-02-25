@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":feature:sample"))
     implementation(project(":feature:splash"))
     implementation(project(":feature:onboarding"))
+    implementation(project(":feature:login-register"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

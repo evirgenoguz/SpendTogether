@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -45,6 +44,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
     implementation(project(":core:common"))
+    implementation(project(":navigation-shared"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

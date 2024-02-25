@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_large"
-                android:text="@string/email_adress"
+                android:text="@string/email_address"
                 android:textStyle="bold">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_large"
-                android:text="@string/email_adress"
+                android:text="@string/email_address"
                 android:textStyle="bold">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawableEnd="@drawable/ic_done"
-                    android:hint="@string/email_adress"
+                    android:hint="@string/email_address"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 

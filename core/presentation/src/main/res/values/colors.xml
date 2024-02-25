@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="pale_lime">#BBF97A</color>
+    <color name="spruce">#0A5F38</color>
 
 </resources>

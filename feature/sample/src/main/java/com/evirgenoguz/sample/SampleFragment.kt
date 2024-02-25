@@ -30,7 +30,7 @@ class SampleFragment : BaseFragment<FragmentSampleBinding>(FragmentSampleBinding
     }
 
     private fun handleLoading() {
-        Log.d("SampleFragment", "Loading Handle")
+        Log.d("SampleFragment", "Success Handle")
     }
 
     private fun handleError() {

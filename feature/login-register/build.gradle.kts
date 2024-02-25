@@ -42,6 +42,9 @@ dependencies {
 
     implementation(project(":core:presentation"))
     implementation(project(":core:localization"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:model"))
+    implementation(project(":core:common"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -62,4 +65,8 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     ksp("com.google.dagger:hilt-android-compiler:2.50")
+
+    // Firebase
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+
 }

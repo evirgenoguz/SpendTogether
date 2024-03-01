@@ -17,37 +17,38 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         initListeners()
     }
 
-    private fun initListeners() {
-        binding.buttonLogin.setOnClickListener {
+    private fun initListeners() = with(binding) {
+        buttonLogin.setOnClickListener {
             loginViewModel.login(
                 LoginModel(
-                    binding.editTextEmail.text.toString(),
-                    binding.editTextPassword.text.toString()
+                    editTextEmail.text.toString(),
+                    editTextPassword.text.toString()
                 )
             )
         }
-        
-        binding.textViewForgotPassword.setOnClickListener {
+
+        textViewForgotPassword.setOnClickListener {
             // TODO: show a dialog that include edittext for user's mail
         }
 
-        binding.textViewRegister.setOnClickListener {
+        textViewRegister.setOnClickListener {
             navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
     }
 
     override fun observeUI() {
-        loginViewModel.loginScreenUiState.observe(viewLifecycleOwner) {
-            when(it){
-                is LoginScreenUiState.Error -> handleError()
+        loginViewModel.loginScreenUiState.observe(viewLifecycleOwner) { loginScreenUiState ->
+            when (loginScreenUiState) {
                 LoginScreenUiState.Loading -> handleLoading()
                 is LoginScreenUiState.Success -> handleSuccess()
+                is LoginScreenUiState.Error -> handleError(loginScreenUiState.message)
             }
         }
     }
 
     private fun handleSuccess() {
         //Todo navigate to homepage
+        navigate(LoginFragmentDirections.actionLoginFragmentToSampleFragment())
         Log.d("LoginFragment", "Success Handle")
     }
 
@@ -56,9 +57,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         Log.d("LoginFragment", "Loading Handle")
     }
 
-    private fun handleError() {
+    private fun handleError(message: String) {
         //Todo show error dialog
-        Log.d("LoginFragment", "Error Handle")
+        Log.d("LoginFragment", message)
     }
 
 }

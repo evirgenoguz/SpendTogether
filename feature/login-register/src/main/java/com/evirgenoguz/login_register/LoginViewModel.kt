@@ -29,14 +29,14 @@ class LoginViewModel @Inject constructor(
                         _loginScreenUiState.postValue(LoginScreenUiState.Loading)
                     }
 
+                    is ResponseState.Success -> {
+                        _loginScreenUiState.postValue(LoginScreenUiState.Success(response.data))
+                    }
+
                     is ResponseState.Error -> {
                         _loginScreenUiState.postValue(
                             LoginScreenUiState.Error(response.message)
                         )
-                    }
-
-                    is ResponseState.Success -> {
-                        _loginScreenUiState.postValue(LoginScreenUiState.Success(response.data))
                     }
                 }
             }

@@ -111,18 +111,43 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_login"
+                    android:id="@+id/button_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/register" />
 
-                <TextView
-                    android:id="@+id/text_view_to_register"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/linear_layout_register"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_large"
-                    android:gravity="end"
-                    android:text="@string/do_you_have_an_account_login" />
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/text_view_do_you_have_acc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_small"
+                        android:fontFamily="@font/jura"
+                        android:gravity="center"
+                        android:text="@string/do_you_have_an_account_login"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_to_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/jura"
+                        android:text="@string/login"
+                        android:textColor="@color/spruce"
+                        android:textStyle="bold" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </LinearLayout>
 

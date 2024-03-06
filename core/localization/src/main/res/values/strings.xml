@@ -6,8 +6,23 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
 
+    <!-- Content Description -->
+    <string name="money_icon">Money Icon</string>
+
     <!-- OnBoarding -->
     <string name="welcome_image">Welcome Image</string>
     <string name="onboarding_welcome_text">Welcome to Spend Together, where financial collaboration meets simplicity. Join us to turn shared spending into shared joy!</string>
+
+    <!-- Login-Register -->
+    <string name="welcome">Welcome</string>
+    <string name="login_with_info">Please login with your information</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">I forgot my password</string>
+    <string name="don_t_you_have_an_account">Don\'t you have an account?</string>
+    <string name="user_name">User Name</string>
+    <string name="do_you_have_an_account_login">Do you have an account?</string>
+    <string name="create_account">Create an account</string>
 
 </resources>

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.evirgenoguz.data"
+    namespace = "com.evirgenoguz.login_register"
     compileSdk = 34
 
     defaultConfig {
@@ -32,20 +32,33 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation(project(":core:common"))
+    implementation(project(":core:presentation"))
+    implementation(project(":core:localization"))
+    implementation(project(":core:domain"))
     implementation(project(":core:model"))
-    implementation(project(":core:network"))
+    implementation(project(":core:common"))
+    implementation(project(":navigation-shared"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.50")
@@ -53,12 +66,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     ksp("com.google.dagger:hilt-android-compiler:2.50")
 
-    //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    // Firebase
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
 
-    //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-
-    //Firebase
-    implementation("com.google.firebase:firebase-auth:22.3.1")
 }

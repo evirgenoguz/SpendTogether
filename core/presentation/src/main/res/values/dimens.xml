@@ -14,4 +14,9 @@
     <dimen name="margin_large">32dp</dimen>
     <dimen name="margin_xlarge">64dp</dimen>
 
+    <dimen name="padding_large">32dp</dimen>
+
+    <dimen name="radius_large">32dp</dimen>
+
+
 </resources>

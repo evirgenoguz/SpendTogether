@@ -25,8 +25,7 @@ class OnBoardingFragment :
         binding.dotsIndicator.attachTo(binding.viewpagerOnboarding)
 
         if (onBoardingFinished()) {
-            //Todo that will navigate to login or register fragment
-            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToSampleFragment())
+            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToLoginFragment())
         }
     }
 

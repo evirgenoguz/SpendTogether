@@ -1,5 +1,7 @@
 package com.evirgenoguz.data.di
 
+import com.evirgenoguz.data.AuthRepository
+import com.evirgenoguz.data.AuthRepositoryImpl
 import com.evirgenoguz.data.SampleRepository
 import com.evirgenoguz.data.SampleRepositoryImpl
 import dagger.Binds
@@ -15,5 +17,9 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSampleRepository(sampleRepositoryImpl: SampleRepositoryImpl): SampleRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
 
 }

@@ -20,7 +20,7 @@ fun LoginModel.toLoginRequest(): LoginRequest {
 fun RegisterModel.toRegisterRequest(): RegisterRequest {
     return RegisterRequest(
         nickName = this.nickName,
-        email =  this.email,
+        email = this.email,
         password = this.password
     )
 }

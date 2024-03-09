@@ -4,5 +4,5 @@ data class User(
     var uid: String,
     var nickName: String,
     var email: String,
-    var imagePath: String = ""
+    var imagePath: String? = ""
 )

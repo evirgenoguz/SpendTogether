@@ -31,10 +31,10 @@ class RegisterViewModel @Inject constructor(
                     }
 
                     is ResponseState.Success -> {
-                        _registerScreenUiState.postValue(RegisterScreenUiState.Success(response.data))
                         saveUserUseCase.invoke(
                             User(response.data.uid, registerModel.nickName, registerModel.email, "")
                         )
+                        _registerScreenUiState.postValue(RegisterScreenUiState.Success(response.data))
                     }
 
                     is ResponseState.Error -> {

@@ -45,7 +45,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     private fun handleSuccess() {
         //Todo navigate to loginFragment and show ToastMessage you are succesfully registered
-        navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+        navigate(RegisterFragmentDirections.actionRegisterFragmentToSampleFragment())
         Log.d("RegisterFragment", "Success Handle")
     }
 

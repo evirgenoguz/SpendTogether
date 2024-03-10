@@ -13,7 +13,7 @@ import javax.inject.Inject
  */
 
 class RegisterUseCase @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
 ) {
 
     suspend operator fun invoke(registerModel: RegisterModel): Flow<ResponseState<FirebaseUser>> {

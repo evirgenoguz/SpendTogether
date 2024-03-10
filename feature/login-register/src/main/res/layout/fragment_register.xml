@@ -107,7 +107,7 @@
                         android:layout_height="match_parent"
                         android:drawableEnd="@drawable/ic_password"
                         android:hint="@string/password"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton

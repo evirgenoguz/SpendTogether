@@ -6,16 +6,19 @@ import com.evirgenoguz.data.utils.toLoginRequest
 import com.evirgenoguz.data.utils.toRegisterRequest
 import com.evirgenoguz.model.LoginModel
 import com.evirgenoguz.model.RegisterModel
+import com.evirgenoguz.model.User
 import com.evirgenoguz.network.dto.request.ResetPasswordRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth,
+    private val fireStore: FirebaseFirestore
 ) : AuthRepository {
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
@@ -49,7 +52,14 @@ class AuthRepositoryImpl @Inject constructor(
                     UserProfileChangeRequest.Builder().setDisplayName(registerRequest.nickName)
                         .build()
                 )?.await()
-                //Todo should add saveProfile function for store users to firestore
+                fireStore.collection("users").document(response.user!!.uid).set(
+                    User(
+                        uid = response.user!!.uid,
+                        nickName = registerModel.nickName,
+                        email = registerModel.email,
+                        imagePath = ""
+                    )
+                )
                 emit(ResponseState.Success(response.user!!))
             } catch (e: Exception) {
                 emit(ResponseState.Error(e.message.toString()))
@@ -61,7 +71,8 @@ class AuthRepositoryImpl @Inject constructor(
         return flow {
             emit(ResponseState.Loading)
             try {
-                val response = firebaseAuth.sendPasswordResetEmail(resetPasswordRequest.email).await()
+                val response =
+                    firebaseAuth.sendPasswordResetEmail(resetPasswordRequest.email).await()
                 emit(ResponseState.Success(response))
             } catch (e: Exception) {
                 emit(ResponseState.Error(e.message.toString()))

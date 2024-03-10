@@ -4,7 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.evirgenoguz.common.ResponseState
 import com.evirgenoguz.domain.RegisterUseCase
+import com.evirgenoguz.domain.SaveUserUseCase
 import com.evirgenoguz.model.RegisterModel
+import com.evirgenoguz.model.User
 import com.evirgenoguz.presentation.base.BaseViewModel
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val registerUseCase: RegisterUseCase
+    private val registerUseCase: RegisterUseCase,
+    private val saveUserUseCase: SaveUserUseCase
 ) : BaseViewModel() {
 
     private val _registerScreenUiState = MutableLiveData<RegisterScreenUiState>()
@@ -28,6 +31,9 @@ class RegisterViewModel @Inject constructor(
                     }
 
                     is ResponseState.Success -> {
+                        saveUserUseCase.invoke(
+                            User(response.data.uid, registerModel.nickName, registerModel.email, "")
+                        )
                         _registerScreenUiState.postValue(RegisterScreenUiState.Success(response.data))
                     }
 

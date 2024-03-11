@@ -8,11 +8,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.evirgenoguz.presentation.loading.IndicatorPresenter
 import com.evirgenoguz.presentation.viewBinding
+import javax.inject.Inject
 
 abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : Fragment() {
 
     val binding: T by viewBinding(factory)
+
+    @Inject
+    lateinit var indicatorPresenter: IndicatorPresenter
+
+    abstract val viewModel: BaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +31,7 @@ abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : F
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        connectViewModel(viewModel)
         callInitialViewModelFunction()
         setupUI()
         observeUI()
@@ -34,6 +42,18 @@ abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : F
     open fun observeUI() = Unit
 
     open fun callInitialViewModelFunction() = Unit
+
+    open fun <VM : BaseViewModel> connectViewModel(vararg viewModels: VM) {
+        viewModels.forEach { viewModel ->
+            viewModel.indicator.observe(viewLifecycleOwner) { isLoading ->
+                if (isLoading) {
+                    indicatorPresenter.show()
+                } else {
+                    indicatorPresenter.hide()
+                }
+            }
+        }
+    }
 
     open fun navigate(action: NavDirections) {
         findNavController().navigate(action)

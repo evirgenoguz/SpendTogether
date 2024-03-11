@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
-    private val registerViewModel by viewModels<RegisterViewModel>()
+    override val viewModel by viewModels<RegisterViewModel>()
 
     override fun setupUI() {
         super.setupUI()
@@ -19,7 +19,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     private fun initListeners() = with(binding) {
         buttonRegister.setOnClickListener {
-            registerViewModel.register(
+            viewModel.register(
                 RegisterModel(
                     nickName = editTextNick.text.toString(),
                     email = editTextEmail.text.toString(),
@@ -34,7 +34,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
     }
 
     override fun observeUI() {
-        registerViewModel.registerScreenUiState.observe(viewLifecycleOwner) { registerScreenUiState ->
+        viewModel.registerScreenUiState.observe(viewLifecycleOwner) { registerScreenUiState ->
             when (registerScreenUiState) {
                 RegisterScreenUiState.Loading -> handleLoading()
                 is RegisterScreenUiState.Success -> handleSuccess()

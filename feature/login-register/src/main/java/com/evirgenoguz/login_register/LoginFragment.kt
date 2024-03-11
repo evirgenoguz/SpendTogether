@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
-    private val loginViewModel by viewModels<LoginViewModel>()
+    override val viewModel by viewModels<LoginViewModel>()
 
     override fun setupUI() {
         super.setupUI()
@@ -19,7 +19,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun initListeners() = with(binding) {
         buttonLogin.setOnClickListener {
-            loginViewModel.login(
+            viewModel.login(
                 LoginModel(
                     editTextEmail.text.toString(),
                     editTextPassword.text.toString()
@@ -37,7 +37,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     override fun observeUI() {
-        loginViewModel.loginScreenUiState.observe(viewLifecycleOwner) { loginScreenUiState ->
+        viewModel.loginScreenUiState.observe(viewLifecycleOwner) { loginScreenUiState ->
             when (loginScreenUiState) {
                 LoginScreenUiState.Loading -> handleLoading()
                 is LoginScreenUiState.Success -> handleSuccess()

@@ -1,10 +1,9 @@
 package com.evirgenoguz.onboarding
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
-import androidx.viewbinding.ViewBinding
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.evirgenoguz.presentation.base.BaseFragment
 
 /**
  * @Author: Oguz Evirgen
@@ -12,7 +11,7 @@ import com.evirgenoguz.presentation.base.BaseFragment
  */
 
 class OnBoardingViewPagerAdapter(
-    private val fragmentList: ArrayList<BaseFragment<out ViewBinding>>,
+    private val fragmentList: ArrayList<Fragment>,
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {

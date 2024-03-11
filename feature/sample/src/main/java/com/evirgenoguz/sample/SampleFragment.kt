@@ -9,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SampleFragment : BaseFragment<FragmentSampleBinding>(FragmentSampleBinding::inflate) {
 
-    private val viewModel by viewModels<SampleViewModel>()
+    override val viewModel by viewModels<SampleViewModel>()
 
     override fun callInitialViewModelFunction() {
         viewModel.getSampleData()

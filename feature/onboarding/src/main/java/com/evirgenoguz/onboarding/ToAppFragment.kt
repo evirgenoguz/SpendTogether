@@ -1,14 +1,36 @@
 package com.evirgenoguz.onboarding
 
 import android.content.Context
+import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.evirgenoguz.onboarding.databinding.FragmentToAppBinding
-import com.evirgenoguz.presentation.base.BaseFragment
 
-class ToAppFragment : BaseFragment<FragmentToAppBinding>(FragmentToAppBinding::inflate) {
-    override fun setupUI() {
+class ToAppFragment : Fragment() {
+
+    private var _binding: FragmentToAppBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentToAppBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupUI()
+    }
+
+    private fun setupUI() {
         binding.fabDone.setOnClickListener {
             val action = OnBoardingFragmentDirections.actionOnBoardingFragmentToLoginFragment()
             findNavController().navigate(action)
@@ -31,5 +53,10 @@ class ToAppFragment : BaseFragment<FragmentToAppBinding>(FragmentToAppBinding::i
                 it.currentItem = 0
             }
         }, 3000)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

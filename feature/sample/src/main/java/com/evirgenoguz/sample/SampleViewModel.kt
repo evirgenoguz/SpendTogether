@@ -3,10 +3,10 @@ package com.evirgenoguz.sample
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.evirgenoguz.common.ResponseState
 import com.evirgenoguz.domain.GetSampleDataUseCase
+import com.evirgenoguz.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SampleViewModel @Inject constructor(
     private val getSampleDataUseCase: GetSampleDataUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _sampleScreenUiState = MutableLiveData<SampleScreenUiState>()
     val sampleScreenUiState: LiveData<SampleScreenUiState> get() = _sampleScreenUiState

@@ -29,6 +29,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
         textViewForgotPassword.setOnClickListener {
             // TODO: show a dialog that include edittext for user's mail
+            // viewmodelda reset password methodu olustur
+            // reset password icin usecase olustur
+            // reset password custom layoutdan aldigin maili viewmodel iceisindeki resetpassword
+            // methoduna Model nesnesi icerisinde gonder
+            // mail gonderimi basarili seklinde bir toast mesaj yazilabilir
         }
 
         textViewRegister.setOnClickListener {

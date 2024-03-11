@@ -26,17 +26,19 @@ class LoginViewModel @Inject constructor(
             loginUseCase(loginModel).collect { response ->
                 when (response) {
                     is ResponseState.Loading -> {
+                        showIndicator()
                         _loginScreenUiState.postValue(LoginScreenUiState.Loading)
                     }
 
                     is ResponseState.Success -> {
                         _loginScreenUiState.postValue(LoginScreenUiState.Success(response.data))
+                        hideIndicator()
                     }
 
                     is ResponseState.Error -> {
-                        _loginScreenUiState.postValue(
-                            LoginScreenUiState.Error(response.message)
-                        )
+                        _loginScreenUiState.postValue(LoginScreenUiState.Error(response.message))
+                        //Todo will change showErrorDialog
+                        hideIndicator()
                     }
                 }
             }

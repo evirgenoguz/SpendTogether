@@ -19,6 +19,8 @@ abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : F
     @Inject
     lateinit var indicatorPresenter: IndicatorPresenter
 
+    abstract val viewModel: BaseViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +31,7 @@ abstract class BaseFragment<T : ViewBinding>(factory: (LayoutInflater) -> T) : F
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        connectViewModel(viewModel)
         callInitialViewModelFunction()
         setupUI()
         observeUI()

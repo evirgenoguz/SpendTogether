@@ -8,8 +8,9 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.evirgenoguz.presentation.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import javax.inject.Inject
 
-class IndicatorPresenterImpl constructor(
+class IndicatorPresenterImpl @Inject constructor(
     private val context: Context
 ) : IndicatorPresenter {
     private var loadingDialog: androidx.appcompat.app.AlertDialog? = null

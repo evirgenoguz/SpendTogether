@@ -28,6 +28,7 @@ class RegisterViewModel @Inject constructor(
                 when (response) {
                     ResponseState.Loading -> {
                         _registerScreenUiState.postValue(RegisterScreenUiState.Loading)
+                        showIndicator()
                     }
 
                     is ResponseState.Success -> {
@@ -35,10 +36,13 @@ class RegisterViewModel @Inject constructor(
                             User(response.data.uid, registerModel.nickName, registerModel.email, "")
                         )
                         _registerScreenUiState.postValue(RegisterScreenUiState.Success(response.data))
+                        hideIndicator()
                     }
 
                     is ResponseState.Error -> {
                         _registerScreenUiState.postValue(RegisterScreenUiState.Error(response.message))
+                        //Todo will change showErrorDialog
+                        hideIndicator()
                     }
                 }
             }

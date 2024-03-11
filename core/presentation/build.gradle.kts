@@ -55,4 +55,7 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     ksp("com.google.dagger:hilt-android-compiler:2.50")
+
+    // Lottie animation
+    implementation("com.airbnb.android:lottie:6.3.0")
 }

@@ -6,8 +6,6 @@ package com.evirgenoguz.presentation.loading
  */
 
 interface IndicatorPresenter {
-
     fun show()
     fun hide()
-    
 }
